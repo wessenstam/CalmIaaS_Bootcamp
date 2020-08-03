@@ -31,7 +31,7 @@
   :name: _additional_calm_labs
   :hidden:
 
-  calm_escript/calm_escript
+  calm_dsl/calm_dsl
   calm_marketplace/calm_marketplace
 
 .. toctree::
