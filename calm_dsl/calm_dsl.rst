@@ -1,14 +1,11 @@
-*Script Provided Below*.. _calm_dsl:
+.. _calm_dsl:
 
------------------------------------------
+--------------------
 Calm: Quickstart DSL
------------------------------------------
+--------------------
 
 Overview
 ++++++++
-
-
-## Setup
 
 To start the DSL lab we have provided a [DevWorkStation.json](https://raw.githubusercontent.com/bmp-ntnx/QuickStartCalmDSL/master/DevWorkstation.json) blueprint to quickly get you started. The included DevWorkstation.json builds a CentOS VM with all the necessary tools.  This blueprint can be launched directly from Calm, but we recommend publishing it to the Calm Marketpkace for Self Service.  Also, included is [software-developer.png](https://github.com/bmp-ntnx/QuickStartCalmDSL/blob/master/software-developer.png) which can be used as an icon
 

@@ -40,6 +40,7 @@
   :name: _optional_labs
   :hidden:
 
+  calm_enable/calm_enable
 
 .. toctree::
   :maxdepth: 2
