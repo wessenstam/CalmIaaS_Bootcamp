@@ -31,7 +31,7 @@
   :name: _additional_calm_labs
   :hidden:
 
-  calm_dsl/calm_dsl
+  calm_escript/calm_escript
   calm_marketplace/calm_marketplace
 
 .. toctree::
@@ -68,8 +68,8 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS 5.11.x | 5.15.x | 5.16.x | 5.17.x
-    - PC 5.17.0.3
+    - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x
+    - Prism 2020.8
 
 - Optional Lab Updates:
 
