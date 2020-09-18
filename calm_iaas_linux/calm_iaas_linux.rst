@@ -60,12 +60,6 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 
        CentOS 7 VM Details
 
-   .. figure:: images/5_windows_2.png
-       :align: center
-       :alt: Windows 2016 VM Details
-
-       Windows 2016 VM Details
-
 #. Click **VM Configuration** to proceed to the next step.
 
 #. On this page, we'll be specifying a variety of settings for our infrastructure.
@@ -454,10 +448,10 @@ What are the key things you should know about **Nutanix Calm** and **Single VM B
 
 - Common day 2 operations, like snapshotting, restoring, cloning, and updating the infrastructure can all be done by end users directly within Calm.
 
-.. |proj-icon| image:: ../images/projects_icon.png
-.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
-.. |mkt-icon| image:: ../images/marketplace_icon.png
-.. |bp-icon| image:: ../images/blueprints_icon.png
-.. |blueprints| image:: images/blueprints.png
-.. |applications| image:: images/blueprints.png
-.. |projects| image:: images/projects.png
+ |proj-icon| image:: ../images/projects_icon.png
+ |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
+ |mkt-icon| image:: ../images/marketplace_icon.png
+ |bp-icon| image:: ../images/blueprints_icon.png
+ |blueprints| image:: images/blueprints.png
+ |applications| image:: images/blueprints.png
+ |projects| image:: images/projects.png
