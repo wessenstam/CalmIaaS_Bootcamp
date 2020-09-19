@@ -120,8 +120,8 @@ Three/Four node HPOC clusters
 Three or four node Hosted POC clusters follow a standard naming convention:
 
 - **Cluster Name** - POC\ *XYZ*
-- **Subnet** - 10.**21**.\ *XYZ*\ .0
-- **Cluster IP** - 10.**21**.\ *XYZ*\ .37
+- **Subnet** - 10.\ **21**\ .\ *XYZ*\ .0
+- **Cluster IP** - 10.\ **21**\ .\ *XYZ*\ .37
 
 For example:
 
@@ -142,7 +142,7 @@ Throughout the Workshop there are multiple instances where you will need to subs
     - Nutanix Cluster Virtual IP
   * - 10.38.\ *XYZ*\ .39
     - **PC** VM IP, Prism Central
-  * - 10.38.\ *XYZ*\ .
+  * - 10.38.\ *XYZ*\ .41
     - **DC** VM IP, NTNXLAB.local Domain Controller
 
 Each cluster is configured with 2 VLANs which can be used for VMs:
@@ -156,18 +156,18 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
     - VLAN
     - DHCP Scope
   * - Primary
-    - 10.21.\ *XYZ*\ .1/25
+    - 10.38.\ *XYZ*\ .1/25
     - 0
-    - 10.21.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
+    - 10.38.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
   * - Secondary
-    - 10.21.\ *XYZ*\ .129/25
+    - 10.38.\ *XYZ*\ .129/25
     - *XYZ1*
-    - 10.21.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
+    - 10.38.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
 
 Single Node HPOC Clusters
 -------------------------
 
-For some workshops we are using Single Node Clusters (SNC). Reason for this is to allow more people to have a dedicated cluster but still have enough free clusters for the bigger workshops including those for customers.
+For some workshops we are using Single Node Clusters (SNC). The reason for this is to allow more people to have a dedicated cluster but still have enough free clusters for the bigger workshops including those for customers.
 
 The network in the SNC config is using a /26 network. This splits the network address into four equal sizes that can be used for workshops. The below table describes the setup of the network in the four partitions. It provides essential information for the workshop with respect to the IP addresses and the services running at that IP address.
 
@@ -277,16 +277,16 @@ Each cluster has a dedicated domain controller VM, **DC**, responsible for provi
     - Administrator
     - nutanix/4u
   * - SSP Admins
-    - adminuser01-adminuser25
+    - adminuser01 - adminuser25
     - nutanix/4u
   * - SSP Developers
-    - devuser01-devuser25
+    - devuser01 - devuser25
     - nutanix/4u
   * - SSP Power Users
-    - poweruser01-poweruser25
+    - poweruser01 - poweruser25
     - nutanix/4u
   * - SSP Basic Users
-    - basicuser01-basicuser25
+    - basicuser01 - basicuser25
     - nutanix/4u
 
 Access Instructions
