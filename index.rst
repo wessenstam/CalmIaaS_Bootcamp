@@ -62,7 +62,7 @@ Welcome to the Nutanix Calm IaaS Bootcamp!
 
 
 
-This workbook accompanies an instructor-led session that introduces Nutanix Era and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 What's New
 ++++++++++
@@ -328,5 +328,5 @@ Nutanix Version Info
 ++++++++++++++++++++
 
 - **AHV Version** - AHV 20170830.337 (AOS 5.11+)
-- **AOS Version** - 5.11.x | 5.15.x | 5.16.x | 5.17.x
-- **PC Version** - 5.17.x
+- **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x
+- **PC Version** - Prism 2020.8
