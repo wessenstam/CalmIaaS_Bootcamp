@@ -52,7 +52,7 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 
    - **Name** - The internal-to-Calm name of the VM.  Can be left as default.
    - **Cloud** - The cloud we're deploying the infrastructure on.  Should be left as **Nutanix**.
-   - **Operating System** - The type of OS we're deploying.  It should be left as Linux if you're using CentOS 7, or changed to Windows if using Windows 2016.
+   - **Operating System** - The type of OS we're deploying.  It should be left as Linux if you're using CentOS 7.
 
    .. figure:: images/4_centos_2.png
        :align: center
@@ -78,7 +78,7 @@ In this lab, you will be creating a **CentOS 7** Linux server.
          CentOS 7 VM Configuration - General Configuration
 
    - **Guest Customization** - Guest customization allows for the modification of certain settings at boot.  Linux OSes use "Cloud Init", while Windows OSes use "Sysprep".  Select the **Guest Customization**, and then paste in the following script.
-     - CentOS 7
+
 
        .. literalinclude:: cloud-init.sh
           :language: bash
@@ -268,9 +268,9 @@ Now that we're familiar with the application page layout, let's modify our appli
 
        CentOS Memory - Before Update
 
-#. Navigate back to the application page of Calm, and click the **Update** button in the upper right.  On the page that appears, increase the **Memory (GiB)** field by 2 GiB (for CentOS, 6 GiB).
+#. Navigate back to the application page of Calm, and click the **Update** button in the upper right and then select the **Update VM Configuration** button.  On the page that appears, increase the **Memory (GiB)** field by 2 GiB (for CentOS, 6 GiB).
 
-#. Click the blue **Update** button in the lower left.
+#. Click the blue **Update** button in the lower right.
 
 #. Validate that the memory field has been increased by 2 GiB, and click **Confirm**.
 
@@ -330,7 +330,7 @@ Approving Blueprints
 
 #. Select |mktmgr-icon| **Marketplace Manager** in the left hand toolbar to view and manage Marketplace Blueprints.
 
-#. You will see the list of Marketplace blueprints, and their versions listesd. Select **Approval Pending** at the top of the page.
+#. You will see the list of Marketplace blueprints, and their versions listed. Select **Approval Pending** at the top of the page.
 
 #. Click your *intials*\ **_CentOS_IaaS** blueprint.
 
@@ -382,7 +382,7 @@ Configuring Project Environment
 
    - **Credential Name** - CENTOS
    - **Username** - centos
-   - **Secret** - Password
+   - **Secret Type** - Password
    - **Password** - Nutanix/4u
    - Click the **running man** icon above Password box to mark this variable as **runtime**.
 
@@ -392,10 +392,9 @@ Configuring Project Environment
 
        CentOS Project Credential
 
-#. Under **VM Configuration** expand **Linux**, and enter the following:
+#. Under **VM Configuration** select **NUTANIX** and expand **Linux** (if not already visible), and enter the following:
 
-   - select **NUTANIX**
-   - **VM Name** - vm-@@{calm_array_index}@@-@@{calm_time}@@ (Default)
+   - **VM Name** - vm-@@{calm_array_index}@@-@@{calm_time}@@ (Leave this at Default)
    - **vCPUs** - 2
    - **Cores per vCPU** - 1
    - **Memory** - 4GiB
@@ -430,7 +429,7 @@ Launching the Blueprint from the Marketplace
 
 #. Click **Launch**
 
-#. Entrer the Following info, and click **Create**.
+#. Enter the following info, and click **Create**.
 
    - **Name of the Application** - *initials*\ -CentOS-IaaS-2
    - **vm_password** - Nutanix/4u
