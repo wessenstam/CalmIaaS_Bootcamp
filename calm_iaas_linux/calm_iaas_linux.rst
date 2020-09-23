@@ -204,7 +204,7 @@ Now that our blueprint is complete, take note of the buttons to the right of the
 
     Blueprint Launch
 
-#. Click **Create**, where you'll be redirectly the application page.
+#. Click **Create**, where you'll be redirected to the application page.
 
 Managing your Application
 +++++++++++++++++++++++++
@@ -253,7 +253,7 @@ Now that we're familiar with the application page layout, let's modify our appli
 
 #. Click **Save**.
 
-#. Take note you're re-directed to the **Audit** tab.  Expand the **Snapshot Create** action to view the tasks of the snapshot.  Once complete, navigate to the **Recovery Points** tab, a validate that our new snapshot is listed.
+#. Take note you're re-directed to the **Audit** tab.  Expand the **Snapshot Create** action to view the tasks of the snapshot.  Once complete, navigate to the **Recovery Points** tab, and validate that our new snapshot is listed.
 
 #. Next, click the **Launch Console** button in the upper right, and log in to your VM.
 
@@ -343,7 +343,7 @@ Approving Blueprints
 
 #. Review the available selections:
 
-   - **Category** - Allows you to update the Category for the new Marletplace blueprint.
+   - **Category** - Allows you to update the Category for the new Marketplace blueprint.
    - **Projects Shared With** - Allows you to make the Marketplace blueprint only available to a certain project.
 
 #. Click **Approve**.
@@ -399,7 +399,7 @@ Configuring Project Environment
    - **Cores per vCPU** - 1
    - **Memory** - 4GiB
    - **Image** - CentOS7.qcow2
-   - **NICs** - Click the **blue plus**, then selecting **Primary** in the dropdown, and selecting the **Dynamic** radio button.
+   - **NICs** - Click the **blue plus**, then selecting **Primary** in the dropdown, and select the **Dynamic** radio button.
    - **Check log-in upon create** - checked, and **Credential** - CENTOS (Defined Above)
 
    .. figure:: images/33_centos_project_vmconfig.png
@@ -417,7 +417,7 @@ Launching the Blueprint from the Marketplace
 
 #. Enter your *initials* in the search bar, and you should see your blueprint listed.
 
-#. Select your *intials*\ **_CentOS_IaaS** blueprint, and click **Launch** from the Marletplace.
+#. Select your *intials*\ **_CentOS_IaaS** blueprint, and click **Launch** from the Marketplace.
 
    .. figure:: images/31_centos_marketplace_launch_bp.png
        :align: center
