@@ -7,8 +7,8 @@ Calm: EScript and Task Library
 Overview
 ++++++++
 
-In the :ref:`calm_iaas_linux` and :ref:`calm_iaas_windows` labs you explored how Calm can utilize Bash and PowerShell scripts to automate application deployments. While shell scripts can be both powerful and versatile, they require the deployment of an endpoint VM on which to copy and execute the script locally.
-
+In the :ref:`calm_iaas_linux` and :ref:`calm_iaas_windows` labs you explored how Calm can give you the ability to quickly provide compute resources, on-demand through a self service portal for different users and departments in your organization.
+In more advanced application deployments Calm can make use of Bash or PowerShell scripts to automate the deployment and Day 2 operations for applications.  In order to facilitate this though, the script must be copied to locally execute on the endpoint/VM.
 There are use cases that would be better served to execute code directly within Calm, such as making API calls to other RESTful services like Nutanix Era, GitHub, IFTTT, etc.
 
 To fill this need, Calm offers a script type called `EScript <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v250:nuc-supported-escript-modules-functions-c.html>`_. Short for Epsilon Script (Epsilon is the orchestration engine that drives Calm), EScript is a sandboxed Python interpreter. It contains many commonly used modules for scripting and automation. In particular, it contains the **requests** module as **urlreq**, used to create external API calls.
