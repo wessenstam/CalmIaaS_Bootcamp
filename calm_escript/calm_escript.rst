@@ -7,8 +7,8 @@ Calm: EScript and Task Library
 Overview
 ++++++++
 
-In the :ref:`calm_linux` and :ref:`calm_win` labs you explored how Calm can utilize Bash and PowerShell scripts to automate application deployments. While shell scripts can be both powerful and versatile, they require the deployment of an endpoint VM on which to copy and execute the script locally.
-
+In the :ref:`calm_iaas_linux` and :ref:`calm_iaas_windows` labs you explored how Calm can give you the ability to quickly provide compute resources, on-demand through a self service portal for different users and departments in your organization.
+In more advanced application deployments Calm can make use of Bash or PowerShell scripts to automate the deployment and Day 2 operations for applications.  In order to facilitate this though, the script must be copied to locally execute on the endpoint/VM.
 There are use cases that would be better served to execute code directly within Calm, such as making API calls to other RESTful services like Nutanix Era, GitHub, IFTTT, etc.
 
 To fill this need, Calm offers a script type called `EScript <https://portal.nutanix.com/#/page/docs/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v250:nuc-supported-escript-modules-functions-c.html>`_. Short for Epsilon Script (Epsilon is the orchestration engine that drives Calm), EScript is a sandboxed Python interpreter. It contains many commonly used modules for scripting and automation. In particular, it contains the **requests** module as **urlreq**, used to create external API calls.
@@ -36,7 +36,7 @@ This lab assumes basic familiarity with Nutanix Calm.
 
    - **Name** - *Initials*-EScript
    - **Description** - My First EScript Blueprint
-   - **Project** - *Initials*-Calm
+   - **Project** - *Initials*-Project
 
 #. From the toolbar along the top of the blueprint, click **Credentials**.
 
@@ -54,7 +54,9 @@ This lab assumes basic familiarity with Nutanix Calm.
 Using Existing Machine Services
 +++++++++++++++++++++++++++++++
 
-#. In **Application Overview > Services**, click :fa:`plus-circle` to add a new Service.
+#. In **Application Overview > Service**, click :fa:`plus-circle` to add a new Service.
+
+.. figure:: images/applicationoverview.png
 
 #. Under the **VM** tab, fill in the following fields:
 
@@ -71,7 +73,7 @@ Using Existing Machine Services
    +------------------------------+------------------+
    | **Check log-in upon create** | **Unselect**     |
    +------------------------------+------------------+
-   | **Credential**               | Leave default    |
+   | **Credential**               | PC_Creds         |
    +------------------------------+------------------+
    | **Address**                  | Leave default    |
    +------------------------------+------------------+
@@ -259,7 +261,7 @@ In this exercise, we're going to create an additional custom action to make a di
 Running the Custom Actions
 ++++++++++++++++++++++++++
 
-#. **Launch** the blueprint. Name the application *Initials*\ **-RestCalls**, and then click **Create**.
+#. **Launch** the blueprint. Name the application *Initials*\ **-RestCalls** and then click **Create**.
 
    The **Create** task should complete quickly, as no VMs are being provisioned or Package Install scripts being run.
 
@@ -271,7 +273,7 @@ Running the Custom Actions
 
    .. figure:: images/apps_run.png
 
-#. In the output on the right pane, maximize the **RuntimePost** task, and view the API output. The output pane can be toggled by clicking the :fa:`eye` icon. Maximize the output/script window to make viewing easier. As expected, the script returns a JSON body with an array describing each launched application in Calm.
+#. In the output on the right pane, maximize the **RuntimePost** task, and view the API output. The output pane can be toggled by clicking the :fa:`eye` icon. Then select the PC - RuntimePost section to be able to see the output/script window.  Maximize the output/script window to make viewing easier. As expected, the script returns a JSON body with an array describing each launched application in Calm.
 
    .. figure:: images/apps_run2.png
 
@@ -286,13 +288,13 @@ Running the Custom Actions
 Publishing to the Task Library
 ++++++++++++++++++++++++++++++
 
-Tasks such as common API calls, package installations for common services, domain joins, etc. can be broadly applicable to multiple blueprints. These tasks can be used without leveraging third party tools or manually copying and pasting scripts by instead publishing into the Task Library, Calm's central repository for code re-use.
+Tasks such as common API calls, package installations for common services, domain joins, etc. can be broadly applicable to multiple blueprints. These tasks can be used without leveraging third party tools or manually copying and pasting scripts but instead by publishing into the Task Library, Calm's central repository for code re-use.
 
 #. Open your *Initials*\ **-EScript** blueprint in the Blueprint Editor.
 
 #. In the **Application Overview > Application Profile** pane, select the **RESTList** action.
 
-#. Select the **RuntimeList** task to open the task in the **Configuration Pane**.
+#. Select the **RuntimePost** task to open the task in the **Configuration Pane**.
 
 #. Click **Publish to Library**.
 
@@ -307,7 +309,7 @@ Tasks such as common API calls, package installations for common services, domai
 
 #. Click **Publish**.
 
-#. Open the **Task Library** in the sidebar.  Select your published task. By default, the task will be available to the project from which it was originally published, but you can specify additional projects with which to share the task.
+#. Open the **Library** in the sidebar.  Select your published task. By default, the task will be available to the project from which it was originally published, but you can specify additional projects with which to share the task.
 
 Takeaways
 +++++++++
