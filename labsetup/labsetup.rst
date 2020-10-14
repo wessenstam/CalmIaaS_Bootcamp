@@ -35,6 +35,10 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
 #. Click **Save & Configure Environment**.
 
+.. note::
+
+  After it is done saving, you will be in the **Environment** section of the Project. We will configure this later in the Bootcamp. Disregard this section for now, you do not have fill in anything at this time.
+
 Deploying a Windows Tools VM
 ++++++++++++++++++++++++++++
 

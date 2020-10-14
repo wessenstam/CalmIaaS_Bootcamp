@@ -32,7 +32,7 @@
   :hidden:
 
   calm_escript/calm_escript
-  calm_marketplace/calm_marketplace
+..  calm_marketplace/calm_marketplace
 
 .. toctree::
   :maxdepth: 2
@@ -62,14 +62,14 @@ Welcome to the Nutanix Calm IaaS Bootcamp!
 
 
 
-This workbook accompanies an instructor-led session that introduces Nutanix Era and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
+This workbook accompanies an instructor-led session that introduces Nutanix Calm and many common management tasks. Each section has a lesson and an exercise to give you hands-on practice. The instructor explains the exercises and answers any additional questions that you may have.
 
 What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
     - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x
-    - Prism 2020.8
+    - Prism 2020.9
 
 - Optional Lab Updates:
 
@@ -120,8 +120,8 @@ Three/Four node HPOC clusters
 Three or four node Hosted POC clusters follow a standard naming convention:
 
 - **Cluster Name** - POC\ *XYZ*
-- **Subnet** - 10.**21**.\ *XYZ*\ .0
-- **Cluster IP** - 10.**21**.\ *XYZ*\ .37
+- **Subnet** - 10.\ **21**\ .\ *XYZ*\ .0
+- **Cluster IP** - 10.\ **21**\ .\ *XYZ*\ .37
 
 For example:
 
@@ -142,7 +142,7 @@ Throughout the Workshop there are multiple instances where you will need to subs
     - Nutanix Cluster Virtual IP
   * - 10.38.\ *XYZ*\ .39
     - **PC** VM IP, Prism Central
-  * - 10.38.\ *XYZ*\ .
+  * - 10.38.\ *XYZ*\ .41
     - **DC** VM IP, NTNXLAB.local Domain Controller
 
 Each cluster is configured with 2 VLANs which can be used for VMs:
@@ -156,18 +156,18 @@ Each cluster is configured with 2 VLANs which can be used for VMs:
     - VLAN
     - DHCP Scope
   * - Primary
-    - 10.21.\ *XYZ*\ .1/25
+    - 10.38.\ *XYZ*\ .1/25
     - 0
-    - 10.21.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
+    - 10.38.\ *XYZ*\ .50-10.21.\ *XYZ*\ .124
   * - Secondary
-    - 10.21.\ *XYZ*\ .129/25
+    - 10.38.\ *XYZ*\ .129/25
     - *XYZ1*
-    - 10.21.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
+    - 10.38.\ *XYZ*\ .132-10.21.\ *XYZ*\ .253
 
 Single Node HPOC Clusters
 -------------------------
 
-For some workshops we are using Single Node Clusters (SNC). Reason for this is to allow more people to have a dedicated cluster but still have enough free clusters for the bigger workshops including those for customers.
+For some workshops we are using Single Node Clusters (SNC). The reason for this is to allow more people to have a dedicated cluster but still have enough free clusters for the bigger workshops including those for customers.
 
 The network in the SNC config is using a /26 network. This splits the network address into four equal sizes that can be used for workshops. The below table describes the setup of the network in the four partitions. It provides essential information for the workshop with respect to the IP addresses and the services running at that IP address.
 
@@ -245,69 +245,101 @@ Credentials
   The *<Cluster Password>* is unique to each cluster and will be provided by the leader of the Workshop.
 
 .. list-table::
-  :widths: 25 35 40
-  :header-rows: 1
+   :widths: 25 35 40
+   :header-rows: 1
 
-  * - Credential
-    - Username
-    - Password
-  * - Prism Element
-    - admin
-    - *<Cluster Password>*
-  * - Prism Central
-    - admin
-    - *<Cluster Password>*
-  * - Controller VM
-    - nutanix
-    - *<Cluster Password>*
-  * - Prism Central VM
-    - nutanix
-    - *<Cluster Password>*
+   * - Credential
+     - Username
+     - Password
+   * - Prism Element
+     - admin
+     - *<Cluster Password>*
+   * - Prism Central
+     - admin
+     - *<Cluster Password>*
+   * - Controller VM
+     - nutanix
+     - *<Cluster Password>*
+   * - Prism Central VM
+     - nutanix
+     - *<Cluster Password>*
 
 Each cluster has a dedicated domain controller VM, **DC**, responsible for providing AD services for the **NTNXLAB.local** domain. The domain is populated with the following Users and Groups:
 
 .. list-table::
-  :widths: 25 35 40
-  :header-rows: 1
+   :widths: 25 35 40
+   :header-rows: 1
 
-  * - Group
-    - Username(s)
-    - Password
-  * - Administrators
-    - Administrator
-    - nutanix/4u
-  * - SSP Admins
-    - adminuser01-adminuser25
-    - nutanix/4u
-  * - SSP Developers
-    - devuser01-devuser25
-    - nutanix/4u
-  * - SSP Power Users
-    - poweruser01-poweruser25
-    - nutanix/4u
-  * - SSP Basic Users
-    - basicuser01-basicuser25
-    - nutanix/4u
+   * - Group
+     - Username(s)
+     - Password
+   * - Administrators
+     - Administrator
+     - nutanix/4u
+   * - SSP Admins
+     - adminuser01-adminuser25
+     - nutanix/4u
+   * - SSP Developers
+     - devuser01-devuser25
+     - nutanix/4u
+   * - SSP Consumers
+     - consumer01-consumer25
+     - nutanix/4u
+   * - SSP Operators
+     - operator01-operator25
+     - nutanix/4u
+   * - SSP Custom
+     - custom01-custom25
+     - nutanix/4u
+   * - Bootcamp Users
+     - user01-user25
+     - nutanix/4u
 
 Access Instructions
 +++++++++++++++++++
 
 The Nutanix Hosted POC environment can be accessed a number of different ways:
 
+Lab Access User Credentials
+...........................
+
+PHX Based Clusters:
+**Username:** PHX-POCxxx-User01 (up to PHX-POCxxx-User20), **Password:** *<Provided by Instructor>*
+
+RTP Based Clusters:
+**Username:** RTP-POCxxx-User01 (up to RTP-POCxxx-User20), **Password:** *<Provided by Instructor>*
+
+Frame VDI
+.........
+
+Login to: https://console.nutanix.com/x/labs
+
+**Nutanix Employees** - Use your **NUTANIXDC** credentials
+**Non-Employees** - Use **Lab Access User** Credentials
+
 Parallels VDI
 .................
 
-Login to: https://xld-uswest1.nutanix.com (for PHX) or https://xld-useast1.nutanix.com (for RTP)
+PHX Based Clusters Login to: https://xld-uswest1.nutanix.com
 
-**Nutanix Employees** - Use your NUTANIXDC credentials
-**Non-Employees** - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+RTP Based Clusters Login to: https://xld-useast1.nutanix.com
 
-Pulse Secure VPN
+**Nutanix Employees** - Use your **NUTANIXDC** credentials
+**Non-Employees** - Use **Lab Access User** Credentials
+
+Employee Pulse Secure VPN
 ..........................
 
-To download the client: login to https://xlv-uswest1.nutanix.com or https://xlv-useast1.nutanix.com - **Username:** POCxxx-User01 (up to POCxxx-User20), **Password:** *<Provided by Instructor>*
+Download the client:
 
-Download and install the client.
+PHX Based Clusters Login to: https://xld-uswest1.nutanix.com
+
+RTP Based Clusters Login to: https://xld-useast1.nutanix.com
+
+**Nutanix Employees** - Use your **NUTANIXDC** credentials
+**Non-Employees** - Use **Lab Access User** Credentials
+
+Install the client.
 
 In Pulse Secure Client, **Add** a connection:
 
@@ -328,5 +360,5 @@ Nutanix Version Info
 ++++++++++++++++++++
 
 - **AHV Version** - AHV 20170830.337 (AOS 5.11+)
-- **AOS Version** - 5.11.x | 5.15.x | 5.16.x | 5.17.x
-- **PC Version** - 5.17.x
+- **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x
+- **PC Version** - Prism 2020.9
