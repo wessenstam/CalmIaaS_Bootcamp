@@ -107,6 +107,8 @@ In this exercise, we're going to be creating a custom action for our application
 
 #. Select :fa:`plus-circle` next to **Actions** to add a new, custom action.
 
+   .. figure:: images/addactionb.png
+
 #. On the **Configuration Pane** to the right, name the action **RESTList**, and add a single variable:
 
    - **Name** - kind
@@ -167,6 +169,8 @@ In this exercise, we're going to create an additional custom action to make a di
    .. figure:: images/subnet_variable.png
 
 #. In the **Application Overview > Application Profile > Default**, section, select :fa:`plus-circle` next to **Actions** to add a new, custom action.
+
+   .. figure:: images/addactionb.png
 
 #. Name the action **GetDefaultSubnet**.
 

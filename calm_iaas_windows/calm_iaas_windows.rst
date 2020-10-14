@@ -36,7 +36,7 @@ In this lab, you will be creating a **Windows 2016** server.
 
 #. Fill out the following fields:
 
-   - **Name** - *Initials*-Windows-IaaS
+   - **Name** - *Initials*-Win-IaaS
    - **Description** - Something descriptive of your choice
    - **Project** - *Initials*-Project
 
@@ -50,7 +50,7 @@ In this lab, you will be creating a **Windows 2016** server.
 
 #. Note the following fields on the **VM Details** page:
 
-   - **Name** - The internal-to-Calm name of the VM.  Can be left as default.
+   - **Name** - The internal-to-Calm name of the VM.  Use @@{calm_application_name}@@.
    - **Cloud** - The cloud we're deploying the infrastructure on.  Should be left as **Nutanix**.
    - **Operating System** - Windows (The type of OS we're deploying)
 
@@ -197,7 +197,7 @@ Now that our blueprint is complete, take note of the buttons to the right of the
 
 #. Go ahead and click the **Launch** button, and enter the following:
 
-    - **Name of the Application** - *initials*\ -Windows-IaaS
+    - **Name of the Application** - *initials*\ -Win-IaaS
     - **vm_password** - Nutanix/4u
 
    .. figure:: images/18_launch.png
@@ -306,7 +306,7 @@ Publishing the Blueprint
 
 #. Select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
-#. Click your *Initials*\ **-Windows-IaaS** blueprint.
+#. Click your *Initials*\ **-Win-IaaS** blueprint.
 
 #. Click the **Publish** button, and enter the following:
 
@@ -422,7 +422,7 @@ Launching the Blueprint from the Marketplace
 
 #. Enter your *initials* in the search bar, and you should see your blueprint listed.
 
-#. Select your *intials*\ **_Windows_IaaS** blueprint, and click **Launch** from the Marketplace.
+#. Select your *intials*\ **_Win_IaaS** blueprint, and click **Launch** from the Marketplace.
 
    .. figure:: images/31_windows_marketplace_launch_bp.png
        :align: center
@@ -436,7 +436,7 @@ Launching the Blueprint from the Marketplace
 
 #. Entrer the Following info, and click **Create**.
 
-   - **Name of the Application** - *initials*\ -Windows-IaaS-2
+   - **Name of the Application** - *initials*\ -Win-IaaS-2
    - **vm_password** - Nutanix/4u
 
 #. Monitor the provisioning of the Blueprint until complete.
@@ -456,6 +456,6 @@ What are the key things you should know about **Nutanix Calm** and **Single VM B
 .. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
 .. |mkt-icon| image:: ../images/marketplace_icon.png
 .. |bp-icon| image:: ../images/blueprints_icon.png
-.. |blueprints| image:: images/blueprints.png
-.. |applications| image:: images/blueprints.png
-.. |projects| image:: images/projects.png
+.. |blueprints| image:: ../images/blueprints.png
+.. |applications| image:: ../images/blueprints.png
+.. |projects| image:: ../images/projects.png

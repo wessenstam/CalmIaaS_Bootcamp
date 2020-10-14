@@ -32,7 +32,7 @@
   :hidden:
 
   calm_escript/calm_escript
-  calm_marketplace/calm_marketplace
+..  calm_marketplace/calm_marketplace
 
 .. toctree::
   :maxdepth: 2
