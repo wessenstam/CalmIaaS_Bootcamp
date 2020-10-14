@@ -70,6 +70,7 @@ What's New
 - Workshop updated for the following software versions:
     - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x
     - Prism 2020.9
+    - Calm 3.1
 
 - Optional Lab Updates:
 
