@@ -39,33 +39,34 @@ In this lab you will leverage multiple pre-built Calm Blueprints to provision yo
 
   After it is done saving, you will be in the **Environment** section of the Project. We will configure this later in the Bootcamp. Disregard this section for now, you do not have fill in anything at this time.
 
-Deploying a Windows Tools VM
-++++++++++++++++++++++++++++
 
-Some exercises in this track will depend on leveraging the Windows Tools VM. Follow the below steps to provision your personal VM from a disk image.
+..  Deploying a Windows Tools VM
+  ++++++++++++++++++++++++++++
 
-#. In **Prism Central**, select :fa:`bars` **> Virtual Infrastructure > VMs**.
+  Some exercises in this track will depend on leveraging the Windows Tools VM. Follow the below steps to provision your personal VM from a disk image.
 
-#. Click **+ Create VM**.
+  #. In **Prism Central**, select :fa:`bars` **> Virtual Infrastructure > VMs**.
 
-#. Fill out the following fields to complete the user VM request:
+  #. Click **+ Create VM**.
 
-   - **Name** - *Initials*\ -WinToolsVM
-   - **Description** - Manually deployed Tools VM
-   - **vCPU(s)** - 2
-   - **Number of Cores per vCPU** - 1
-   - **Memory** - 4 GiB
+  #. Fill out the following fields to complete the user VM request:
 
-   - Select **+ Add New Disk**
-      - **Type** - DISK
-      - **Operation** - Clone from Image Service
-      - **Image** - WinToolsVM.qcow2
-      - Select **Add**
+     - **Name** - *Initials*\ -WinToolsVM
+     - **Description** - Manually deployed Tools VM
+     - **vCPU(s)** - 2
+     - **Number of Cores per vCPU** - 1
+     - **Memory** - 4 GiB
 
-   - Select **Add New NIC**
-      - **VLAN Name** - Secondary
-      - Select **Add**
+     - Select **+ Add New Disk**
+        - **Type** - DISK
+        - **Operation** - Clone from Image Service
+        - **Image** - WinToolsVM.qcow2
+        - Select **Add**
 
-#. Click **Save** to create the VM.
+     - Select **Add New NIC**
+        - **VLAN Name** - Secondary
+        - Select **Add**
 
-#. Power on your *Initials*\ **-WinToolsVM**.
+  #. Click **Save** to create the VM.
+
+  #. Power on your *Initials*\ **-WinToolsVM**.
