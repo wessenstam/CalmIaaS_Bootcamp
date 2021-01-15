@@ -12,6 +12,8 @@ To start the DSL lab we have provided a DevWorkStation blueprint to quickly get 
 Add Blueprint to Marketplace
 ++++++++++++++++++++++++++++
 
+To get started download the following Blueprint JSON and Img file.
+
 #. `Download the DevWorkStation Blueprint by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/DevWorkstation.json>`_.
 
 #. `Download the DevWorkStation Blueprint Icon for the Market Place by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/MPDevWorkstation.png>`_.
