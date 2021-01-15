@@ -9,8 +9,23 @@ Overview
 
 To start the DSL lab we have provided a DevWorkStation.json](https://raw.githubusercontent.com/bmp-ntnx/QuickStartCalmDSL/master/DevWorkstation.json) blueprint to quickly get you started. The included DevWorkstation.json builds a CentOS VM with all the necessary tools.  This blueprint can be launched directly from Calm, but we recommend publishing it to the Calm Marketpkace for Self Service.  Also, included is [software-developer.png](https://github.com/bmp-ntnx/QuickStartCalmDSL/blob/master/software-developer.png) which can be used as an icon
 
+Add Blueprint to marketplace
+++++++++++++++++++++++++++++
+
+#. `Download the DevWorkStation Blueprint by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/DevWorkstation.json>`_.
+
+#. From **Prism Central > Calm**, select **Blueprints** from the lefthand menu and click **Upload Blueprint**.
+
+#. Select **DevWorkStation.json**
+
+#. Update the **Blueprint Name** to include your initials. Even across different projects, Calm Blueprint names must be unique.
+
+#. Select your Calm project and click **Upload**.
+
+
+
+
 Launch DevWorkstation from Calm Marketplace
-+++++++++++++++++++++++++++++++++++++++++++
 
 .. figure:: images/MPDevWorkstation.png
 
