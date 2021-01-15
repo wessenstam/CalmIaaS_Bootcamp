@@ -1,7 +1,7 @@
 .. _calm_dsl:
 
 -----------------------------------------
-Calm: Quickstart DSL
+Calm: DSL
 -----------------------------------------
 
 Overview
@@ -82,7 +82,7 @@ Launch DevWorkstation from Calm Marketplace
     - **Name of the Application** - *intials*\ **_DevWorkStation**
     - **Prism Central IP** - *Provided Prism Central IP*
     - **Prism Central Password** - *HPOC Password*
-    _ **Calm Project** - *initials*\ **-Project**
+    - **Calm Project** - *initials*\ **-Project**
 
     .. figure:: images/DevLaunch.png
 
