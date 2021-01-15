@@ -9,202 +9,269 @@ Overview
 
 To start the DSL lab we have provided a DevWorkStation.json](https://raw.githubusercontent.com/bmp-ntnx/QuickStartCalmDSL/master/DevWorkstation.json) blueprint to quickly get you started. The included DevWorkstation.json builds a CentOS VM with all the necessary tools.  This blueprint can be launched directly from Calm, but we recommend publishing it to the Calm Marketpkace for Self Service.  Also, included is [software-developer.png](https://github.com/bmp-ntnx/QuickStartCalmDSL/blob/master/software-developer.png) which can be used as an icon
 
-Add Blueprint to marketplace
+Add Blueprint to Marketplace
 ++++++++++++++++++++++++++++
 
 #. `Download the DevWorkStation Blueprint by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/DevWorkstation.json>`_.
+
+#. `Download the DevWorkStation Blueprint Icon for the Market Place by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/MPDevWorkstation.png>`_.
+
+Upload Blueprint to Calm
+........................
 
 #. From **Prism Central > Calm**, select **Blueprints** from the lefthand menu and click **Upload Blueprint**.
 
 #. Select **DevWorkStation.json**
 
-#. Update the **Blueprint Name** to include your initials. Even across different projects, Calm Blueprint names must be unique.
+#. Update the **Blueprint Name** to *initials*\ **_DevWorkStation**. Even across different projects, Calm Blueprint names must be unique.
 
 #. Select your Calm project and click **Upload**.
 
+Publishing the Blueprint
+........................
 
+#. Select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
+#. Click your *intials*\ **-CentOS-IaaS** blueprint.
+
+#. Assign the **Primary** Network to the NIC on the **VM1** service.
+
+#. Update the Credential for **local**, and click **Save** > then **Back**
+
+    - **Password** - Nutanix/4u
+
+#. Click the **Publish** button, and enter the following:
+
+   - **Name** - *initials*\ _DevWorkStation
+   - **Publish with secrets** - off
+   - **Initial Version** - 1.0.0
+   - **Description** - (Optional)
+   - **Change Image** - Upload the **MPDevWorkstation.png** you downloaded earlier
+
+#. Click **Submit for Approval**.
+
+Approving Blueprints
+....................
+
+#. Select |mktmgr-icon| **Marketplace Manager** in the left hand toolbar to view and manage Marketplace Blueprints.
+
+#. You will see the list of Marketplace blueprints, and their versions listed. Select **Approval Pending** at the top of the page.
+
+#. Click your *intials*\ **_DevWorkStation** blueprint.
+
+#. Click **Approve**.
+
+Deploy Dev Workstation from Marketplace
++++++++++++++++++++++++++++++++++++++++
 
 Launch DevWorkstation from Calm Marketplace
+...........................................
 
-.. figure:: images/MPDevWorkstation.png
+#. Select |mktmgr-icon| **Marketplace Manager** in the left hand toolbar to view and manage Marketplace Blueprints.
 
--   **Important: Select the Credentials tab and enter desired User/Pass**
+#. Enter your *initials* in the search bar, and you should see your blueprint listed.
 
-.. figure:: images/Creds.png
+#. Select your *intials*\ **_DevWorkStation** blueprint, and click **Launch** from the Marketplace.
 
--   Enter the name of Application "DevWorkstation-\<INITIALS\> and fill out the form with the requested information
+#. Select your *initials*\ **-Project** from the **Projects** dropdown.
 
-.. figure:: images/DevLaunch.png
+#. Enter the following for **Profile Configuration**:
 
--   Press Create
+    - **Name of the Application** - *intials*\ **_DevWorkStation**
+    - **Prism Central IP** - *Provided Prism Central IP*
+    - **Prism Central Password** - *HPOC Password*
+    _ **Calm Project** - *initials*\ **-Project**
 
--   While waiting review the audit log to see packages being deployed.  The blueprint automatically installs several utilities along with Calm DSL
+    .. figure:: images/DevLaunch.png
 
-## Once the application is "running" SSH to the DevWorkstation
+#. Enter the following for **Credentials**:
 
--   The IP address of the DevWorkstation is listed under the application overview.  The SSH user/pass is what was set under the credentials tab
+    - **Username** - centos
+    - **Password** - Nutanix/4u
 
+    .. figure:: images/Creds.png
 
-.. figure:: images/IPaddress.png
+#. Click **Create**
+
+#. While waiting review the audit log to see packages being deployed.
+
+  .. note::
+
+    The blueprint automatically installs several utilities along with Calm DSL
+
+#. Once the application is **Running** make note of the IP Address for the next lab.
+
+   .. note::
+
+     The IP address of the DevWorkstation is listed under the application overview.
+
+   .. figure:: images/IPaddress.png
+
+Start Using Calm DSL
+++++++++++++++++++++
 
 Start the virtual environment and connect to Prism Central
+..........................................................
 
+#. Open a Console session or SSH to your *intials*\ **_DevWorkStation**
 
--   cd to the "calm-dsl" directory from home
+#. Change Directories by running ```cd calm-dsl``` from the home directory
 
--   Run ```source venv/bin/activate``` to switch to the virtual environment. This will enable the virtual environment for Calm DSL
+#. Run ```source venv/bin/activate``` to switch to the virtual environment. This will enable the virtual environment for Calm DSL
 
--   **Optional:** This has already been done through the blueprint launch. Once you SSH into the DevWorkstation we can setup the connection to Prism Central by running ```calm init dsl```
+   .. note::
 
--   Verify the current config settings by running ```calm show config```
+     This has already been done through the blueprint launch, but once you SSH into the DevWorkstation you can setup the connection to Prism Central by running ```calm init dsl```
 
+#. Verify the current config settings by running ```calm show config```
 
-.. figure:: images/Config.png
+    .. figure:: images/Config.png
 
 List the current blueprints in Calm
+...................................
 
+#. Run ```calm get bps``` and we see all the blueprints in Calm with their UUID, description, application count, project, and state
 
--   Run ```calm get bps``` and we see all the blueprints in Calm with their UUID, description, application count, project, and state
+    .. figure:: images/getbps.png
 
+#. Run ```calm get bps -q``` to display quiet output with only the BP names
 
-![Alt text](images/getbps.png)
+    .. figure:: images/calmgetbpsq.png
 
--   Run ```calm get bps -q``` to display quiet output with only the BP names
+Review and Modify a Blueprint
+.............................
 
+Now lets review a python based blueprint, and make a modification.
 
-.. figure:: images/calmgetbpsq.png
+#. Change to the **HelloBlueprint** directory by running ```cd HelloBlueprint``` and run ```ls``` to list the contents of the directory.
 
-Review python based blueprint and make a modification
+    .. note::
 
+      This directory and it's contents were automatically created during the blueprint launch.
+      As part of the DevWorkstation blueprint launch we ran ```calm init bp``` which creates a sample blueprint configured to the connected Calm instance.
 
--   Change to the "HelloBlueprint" directory and run ```ls```
+#. There is a file called "blueprint.py" which is a python version of a blueprint
 
-    -   This directory and it's contents were automatically created during the blueprint launch.  As part of the DevWorkstation blueprint launch we ran ```calm init bp``` which creates a sample blueprint configured to the connected Calm instance
+#. There is a "scripts" directory. This is where the bash/powershell/python scripts are stored that are referenced within the blueprint
 
--   There is a file called "blueprint.py" which is a python version of a blueprint
+    .. figure:: images/hellols.png
 
--   There is a "scripts" directory. This is where the bash/powershell/python scripts are stored that are referenced within the blueprint
+Modify blueprint.py
+===================
 
+#. Run ```vi blueprint.py``` to edit the python file.
 
-.. figure:: images/hellols.png
+#. Review the blueprint for familiar constructs.  To skip directly to a line enter ```:<linenumber>```
 
--   Run ```vi blueprint.py```
+    - Credentials (line 54-60)
 
--   Review the blueprint for familiar constructs.  To skip directly to a line enter ```:<linenumber>```
+    - OS Image (line 62-66)
 
-    -   Credentials (line 54-60)
+    - Under class HelloPackage(Package) you will see references to the pkg\_install\_task.sh script in the scripts directory (line 139)
 
-    -   OS Image (line 62-66)
+    - Basic VM spec information (vCPU/memory/disks/nics) (line 153-159)
 
-    -   Under class HelloPackage(Package) you will see references to the pkg\_install\_task.sh script in the scripts directory (line 139)
+    - Guest Customization contains cloud-init (line 161-171)
 
-    -   Basic VM spec information (vCPU/memory/disks/nics) (line 153-159)
+#. In the blueprint.py modify the number of vCPU
 
-    -   Guest Customization contains cloud-init (line 161-171)
+    - Change the vCPU from 2 to 4 (line 154)
 
--   In the blueprint.py modify the number of vCPU
+      .. figure:: images/vcpu.png
 
-    -   Change the vCPU from 2 to 4 (line 154)
+#. Add a unique VM name using a macro (line 185)
 
+    - ```provider_spec.name = "<Initials>-@@{calm_unique}@@"```
 
-.. figure:: images/vcpu.png
+      .. figure:: images/vmname.png
 
--   Add a unique VM name using a macro (line 185)
-
-    -   ```provider_spec.name = "<Initials>-@@{calm_unique}@@"```
-
-
-![Alt text](images/vmname.png)
-
--   Write/quit ```:wq``` the .py blueprint file to save and close
+#. Write/quit ```:wq``` the .py blueprint file to save and close
 
 Modify pkg\_install\_task.sh
+============================
 
--   Change to the scripts directory and run ```ls```. We will see 2 scripts that are being referenced inside blueprint.py
+#. Change to the scripts directory and run ```ls```. We will see 2 scripts that are being referenced inside blueprint.py
 
--   Run ```cat pkg_install_task.sh``` to view the current contents of the install script.  What does the script do?
+#. Run ```cat pkg_install_task.sh``` to view the current contents of the install script.  What does the script do?
 
+    .. figure:: images/more1.png
 
-.. figure:: images/more1.png
+#. Run ```curl -Sks https://raw.githubusercontent.com/nutanixworkshops/prep/master/nginx > pkg_install_task.sh``` to replace the existing install script
 
--   Run ```curl -Sks https://raw.githubusercontent.com/bmp-ntnx/prep/master/nginx > pkg_install_task.sh``` to replace the existing install script
+#. Run ```cat pkg_install_task.sh``` to view the changed script.  What does the script do now?
 
--   Run ```cat pkg_install_task.sh``` to view the changed script.  What does the script do now?
+    .. figure:: images/more2.png
 
+Push The Modified Blueprint To Calm
++++++++++++++++++++++++++++++++++++
 
-.. figure:: images/more2.png
+#. Return to the "HelloBlueprint" directory
 
-## Push the modified blueprint.py to Calm
+#. Run ```calm create bp --file blueprint.py --name FromDSL-<Initials>```
 
--   Return to the "HelloBlueprint" directory
+    .. note::
 
--   Run ```calm create bp --file blueprint.py --name FromDSL-<Initials>```
+      This converts the .py file to json and pushes it to Calm
 
-    -   This converts the .py file to json and pushes it to Calm
+    .. figure:: images/syncbp.png
 
+#. **Optional:** Run ```calm compile bp -f blueprint.py``` to view the python blueprint in json format from DSL
 
-.. figure:: images/syncbp.png
+#. Verify your new blueprint by running ```calm get bps -q | grep FromDSL-<Initials>```
 
--   **Optional:** Run ```calm compile bp -f blueprint.py``` to view the python blueprint in json format from DSL
+    .. figure:: images/verifygrep.png
 
--   Verify your new blueprint by running ```calm get bps -q | grep FromDSL-<Initials>```
+Launch The Blueprint Into An Application
+++++++++++++++++++++++++++++++++++++++++
 
+#. Run ```calm get apps``` to verify all the current applications before launching your new app
 
-.. figure:: images/verifygrep.png
+#. We can also run ```calm get apps -q``` to quiet the details like we did with blueprints earlier
 
-## Launch the blueprint into an application
+Launch Your Newly Uploaded Blueprint
+....................................
 
--   Run ```calm get apps``` to verify all the current applications before launching your new app
+#. Run ```calm launch bp FromDSL-<Initials> --app_name AppFromDSL-<Initials> -i```
 
-    -   We can also run ```calm get apps -q``` to quiet the details like we did with blueprints earlier
+    .. figure:: images/launchbp.png
 
--   Launch your newly uploaded blueprint into an application
+#. Run ```calm describe app AppFromDSL-<Initials>``` to see the application summary
 
--   Run ```calm launch bp FromDSL-<Initials> --app_name AppFromDSL-<Initials> -i```
+#. Once the app status changes to "running" we will have a nginx server deployed from Calm DSL!
 
+    .. figure:: images/describe.png
 
-.. figure:: images/launchbp.png
+#. Now we need to get the VM/Application IP address.  To get this we will pull the "address" from the application json output using jq by running the following:
+```calm describe app AppFromDSL-<Initials> --out json | jq '.status.resources.deployment_list[].substrate_configuration.element_list[].address'```
 
--   Run ```calm describe app AppFromDSL-<Initials>``` to see the application summary
+    .. figure:: images/jqout.png
 
--   Once the app status changes to "running" we will have a nginx server deployed from Calm DSL!
+#. Enter the IP in a web browser and this will take you to the nginx **"Welcome to DSL"** web page
 
+    .. figure:: images/welcome2.png
 
-.. figure:: images/describe.png
+Log into Prism Central to Verify
+.................................
 
-<!--- -   Run ```calm describe app AppFromDSL-<Initials> --out json | grep -F '[{\"ip\":\"'``` to search the json output for the VM IP --->
+#. Check the blueprint created from DSL
 
--   Now we need to get the VM/Application IP address.  To get this we will pull the "address" from the application json output using jq by running the following:
+#. Check the application launched from DSL
 
--   ```calm describe app AppFromDSL-<Initials> --out json | jq '.status.resources.deployment_list[].substrate_configuration.element_list[].address'```
+Looking Back At What We Did
++++++++++++++++++++++++++++
 
+As you went through this lab not only did you use Calm DSL, but you also used several native Linux tools such as vi, curl, grep, cat, pipe, and redirects.  Calm DSL allows extended felxibily by combining it with these powerful tools.
 
-<!--- ![Alt text](images/getip.png) --->
+Think about how you can add git to this workflow to track changes or modify blueprints with sed
 
-.. figure:: images/jqout.png
-
--   Enter the IP in a web browser and this will take you to the nginx **"Welcome to DSL"** web page
-
-.. figure:: images/welcome2.png
-
-## Log into Prism Central to verify
-
--   Check the blueprint created from DSL
-
--   Check the application launched from DSL
-
-## Looking back
-
-As you went through this lab not only did you use Calm DSL, but you also used several native Linux tools such as vi, curl, grep, cat, pipe, and redirects.  Calm DSL allows extended felxibily by combining it with these powerful tools.  Think about how you can add git to this workflow to track changes or modify blueprints with sed
-
-## Optional: Getting started with git
+Optional: Getting started with git
+++++++++++++++++++++++++++++++++++
 
 Speaking of git lets contiue on and push our blueprint to git.  We will need a github.com account before you can get started
 
--   Logon to git and create new repo "dsl-blueprints"
+#. Logon to git and create new repo "dsl-blueprints"
 
--   From the "HelloBlueprint" directory run:
+#. From the "HelloBlueprint" directory run:
 
     - ```echo "# dsl-blueprints" >> README.md``` to create a README
 
@@ -220,7 +287,6 @@ Speaking of git lets contiue on and push our blueprint to git.  We will need a g
 
     - ```git remote -v``` to verify your remote origin
 
-
     .. figure:: images/gitsetup.png
 
     - ```git status``` to see whats being tracked
@@ -229,29 +295,27 @@ Speaking of git lets contiue on and push our blueprint to git.  We will need a g
 
     - ```git status``` to see the change after adding the files
 
-
     .. figure:: images/gitstatus.png
 
-    - From the above output we can see there are some keys so lets remove those since this is being pushed to a public repo
+#. From the above output we can see there are some keys, so lets remove those since this is being pushed to a public repo.
 
-    - ```git rm --cached .local -r```
+#. Run the following to remove the keys ```git rm --cached .local -r```
 
-    - ```git status``` to verify they were removed
-
+#. Run ```git status``` to verify they were removed
 
     .. figure:: images/gitremove.png
 
-    - ```git commit -m "My DSL blueprints"``` to commit the files
-
+#. Run ```git commit -m "My DSL blueprints"``` to commit the files
 
     .. figure:: images/gitcommit.png
 
-     - ```git push -u origin master``` to push to git.  You will be prompted for your user/pass unless you setup key access to github
-
+#. Run ```git push -u origin master``` to push to git.  You will be prompted for your user/pass unless you setup key access to github
 
     .. figure:: images/gitpush.png
 
-     -  Check your github repo and verify your files were pushed.  Now that your blueprints exists in both Calm and github lets increase the memory to 8 in the blueprint by running:
+#. Check your github repo and verify your files were pushed.
+
+#. Now that your blueprints exists in both Calm and github lets increase the memory to 8 in the blueprint by running:
 
         - ```sed -i 's/memory = 4/memory = 8/g' blueprint.py``` use the linux sed tool to change the memory config
 
@@ -261,8 +325,8 @@ Speaking of git lets contiue on and push our blueprint to git.  We will need a g
 
         - ```git push -u origin master```
 
-    - Back in github there is a new verion under the "history" of blueprint.py with the changed memory
+#. Back in github there is a new verion under the "history" of blueprint.py with the changed memory
 
     .. figure:: images/diff.png
 
-    ## Looking back
+#. You have now edited a blueprint, sent it to Calm, launched an application, and used version control all from the command line using Calm-dsl.
