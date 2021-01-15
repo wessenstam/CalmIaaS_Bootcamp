@@ -331,4 +331,15 @@ Speaking of git lets contiue on and push our blueprint to git.  We will need a g
 
     .. figure:: images/diff.png
 
-#. You have now edited a blueprint, sent it to Calm, launched an application, and used version control all from the command line using Calm-dsl.
+Takeaways
++++++++++
+
+You have now edited a blueprint, sent it to Calm, launched an application, and used version control all from the command line using Calm-dsl.
+
+.. |proj-icon| image:: ../images/projects_icon.png
+.. |mktmgr-icon| image:: ../images/marketplacemanager_icon.png
+.. |mkt-icon| image:: ../images/marketplace_icon.png
+.. |bp-icon| image:: ../images/blueprints_icon.png
+.. |blueprints| image:: ../images/blueprints.png
+.. |applications| image:: ../images/blueprints.png
+.. |projects| image:: ../images/projects.png
