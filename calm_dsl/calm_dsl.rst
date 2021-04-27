@@ -16,7 +16,7 @@ To get started download the following Blueprint JSON and Img file.
 
 #. `Download the DevWorkStation Blueprint by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/DevWorkstation.json>`_.
 
-#. `Download the DevWorkStation Blueprint Icon for the Market Place by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/MPDevWorkstation.png>`_.
+#. `Download the DevWorkStation Blueprint Icon for the Market Place by right-clicking here <https://raw.githubusercontent.com/nutanixworkshops/CalmIaaS_Bootcamp/master/calm_dsl/images/MPDevWorkstation.png>`_.
 
 Upload Blueprint to Calm
 ........................
