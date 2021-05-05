@@ -27,16 +27,6 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Additional Calm Labs
-  :name: _additional_calm_labs
-  :hidden:
-
-  calm_dsl/calm_dsl
-..  calm_escript/calm_escript
-  calm_marketplace/calm_marketplace
-
-.. toctree::
-  :maxdepth: 2
   :caption: Optional Labs
   :name: _optional_labs
   :hidden:
@@ -69,9 +59,9 @@ What's New
 ++++++++++
 
 - Workshop updated for the following software versions:
-    - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x
-    - Prism 2020.9
-    - Calm 3.1
+    - AOS 5.15.x | 5.16.x | 5.17.x | 5.18.x | 5.19.x
+    - Prism 2021.3.0.1
+    - Calm 3.2.2
 
 - Optional Lab Updates:
 
@@ -80,9 +70,8 @@ Agenda
 
 - Nutanix Calm Labs
     - Calm: Lab Setup
-    - Calm: Deploy Windows or Linux Blueprint
-    - Calm: eScript
-    - Calm: Marketplace
+    - Calm: Deploy Linux Blueprint and use Marketplacs
+    - Calm: Deploy Windows Blueprint and use Marketplacs
 
 - Optional Labs
 
@@ -362,5 +351,5 @@ Nutanix Version Info
 ++++++++++++++++++++
 
 - **AHV Version** - AHV 20170830.337 (AOS 5.11+)
-- **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x
-- **PC Version** - Prism 2020.9
+- **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x | 5.19.x
+- **PC Version** - Prism 2021.3.0.1
