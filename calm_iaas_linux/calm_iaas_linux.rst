@@ -24,7 +24,7 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 
 #. In **Prism Central**, select :fa:`bars` **> Services > Calm**.
 
-   .. figure:: images/1_access_calm.png
+   .. figure:: images/3.2.2/1_access_calm.png
 
 #. Select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
@@ -39,8 +39,9 @@ In this lab, you will be creating a **CentOS 7** Linux server.
    - **Name** - *Initials*-CentOS-IaaS
    - **Description** - Something descriptive of your choice
    - **Project** - *Initials*-Project
+   - ** Environment**m - Leave default
 
-   .. figure:: images/2_centos_1.png
+   .. figure:: images/3.2.2/2_centos_1.png
        :align: center
        :alt: CentOS 7 Blueprint Settings
 
@@ -51,10 +52,10 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 #. Note the following fields on the **VM Details** page:
 
    - **Name** - The internal-to-Calm name of the VM.  Can be left as default.
-   - **Cloud** - The cloud we're deploying the infrastructure on.  Should be left as **Nutanix**.
+   - **Account** - The cloud we're deploying the infrastructure on.  Should be left as **NTNX_LOCAL_AZ**.
    - **Operating System** - The type of OS we're deploying.  It should be left as Linux if you're using CentOS 7.
 
-   .. figure:: images/4_centos_2.png
+   .. figure:: images/3.2.2/4_centos_2.png
        :align: center
        :alt: CentOS 7 VM Details
 
@@ -91,6 +92,7 @@ In this lab, you will be creating a **CentOS 7** Linux server.
 
      .. note::
         Take note of the "@@{vm_password}@@" text.  In Calm the "@@{" and "}@@" characters represent a macro.  At runtime, Calm will automatically "patch" or substitute in the proper value(s) when it encounters a macro.  A macro could represent a system defined value, a VM property, or (as it does in this case) a runtime variable.  Later in this lab we'll create a runtime variable with the name "vm_password".
+        For a full overview off built-in macros that Calm supports look at https://portal.nutanix.com/page/documents/details?targetId=Nutanix-Calm-Admin-Operations-Guide-v3_2_2:nuc-components-macros-overview-c.html 
 
    - **Disks** - A disk is the storage of the VM or infrastructure that we're deploying.  It could be based on a pre-existing image (as it will in our case), or it could be based on a blank disk to enable the VM to consume additional storage.  For instance, a Microsoft SQL server may need its base OS disk, a separate SQL Server binary disk, separate database data file disks, separate TempDB disks, and a separate logging disk.  In our case we're going to have a single disk, based on a pre-existing image.
 
@@ -175,7 +177,7 @@ Variables can be used in scripts executed against objects using the **@@{variabl
 
 #. Scroll to the bottom, and click the blue **Done** button.
 
-#. Click **Save**.  It is expected to receive a **Warning** stating that the value of our secret variable is empty.  This is needed as there is not way to determine the value of a secret once you save the blueprint, so this warning alerts a user in the event they accidentally left it blank.  Warnings do not prevent users from launching or publishing the blueprint.  If you receive any other warning, or a red error, please resolve the issue before continuing on.
+#. Click **Save** (top right corner).  It is expected to receive a **Warning** stating that the value of our secret variable is empty.  This is needed as there is not way to determine the value of a secret once you save the blueprint, so this warning alerts a user in the event they accidentally left it blank.  Warnings do not prevent users from launching or publishing the blueprint.  If you receive any other warning, or a red error, please resolve the issue before continuing on.
 
    .. figure:: images/17_warning.png
        :align: center
@@ -198,13 +200,16 @@ Now that our blueprint is complete, take note of the buttons to the right of the
     - **Name of the Application** - *initials*\ -CentOS-IaaS
     - **vm_password** - Nutanix/4u
 
-.. figure:: images/18_launch.png
+.. figure:: images/3.2.2/18_launch.png
     :align: center
     :alt: Blueprint Launch
 
     Blueprint Launch
 
-#. Click **Create**, where you'll be redirected to the application page.
+.. note::
+    As the running man has been also enabled for the CPU and RAM configurations, you see them in your Launch screen. Leave the settings as they are.
+
+#. Click **Deploy** (at the bottom of your screen), where you'll be redirected to the application page.
 
 Managing your Application
 +++++++++++++++++++++++++
@@ -280,7 +285,7 @@ Now that we're familiar with the application page layout, let's modify our appli
 
        CentOS Memory - Confirm Change
 
-#. In the **Audit** tab of Calm, wait for the **App Update** action to complete.
+#. In the **Audit** tab of Calm, wait for the **App Update** action to complete. Your VM will reboot for this change.
 
 #. Back in the **VM Console**, run the same command from earlier to view the updated memory, and note that it has increased by 2 GiB.
 
@@ -376,23 +381,15 @@ Configuring Project Environment
 
 #. Select your *initials*\ -Project.
 
-#. Select the **Environment** tab.
+#. Select the **Create Environment** button under Environments.
 
-#. Under **Credential**, click :fa:`plus-circle` and enter the following:
+#. In the **Name** field type *Initials*-Calm IaaS
 
-   - **Credential Name** - CENTOS
-   - **Username** - centos
-   - **Secret Type** - Password
-   - **Password** - Nutanix/4u
-   - Click the **running man** icon above Password box to mark this variable as **runtime**.
+#. Click the **Next** button
 
-   .. figure:: images/32_centos_project_creds.png
-       :align: center
-       :alt: CentOS Project Credential
+#. Under **Accounts** click the **Select Account** and select your **NTNX_LOCAL_AZ**
 
-       CentOS Project Credential
-
-#. Under **VM Configuration** select **NUTANIX** and expand **Linux** (if not already visible), and enter the following:
+#. Under **VM Configuration** select **Required for launching blueprints from marketplace** and expand **Linux** (if not already visible), and enter the following:
 
    - **VM Name** - vm-@@{calm_array_index}@@-@@{calm_time}@@ (Leave this at Default)
    - **vCPUs** - 2
@@ -408,7 +405,23 @@ Configuring Project Environment
 
        CentOS Project VM Config
 
-#. Click **Save**.
+#. Click the **Next** button
+
+#. Under **Credential**, check the fields:
+
+   - **Credential Name** - CENTOS
+   - **Username** - centos
+   - **Secret Type** - Password
+   - **Password** - Nutanix/4u (click on the :fa:`eye` icon)
+   - Click the **running man** icon above Password box to mark this variable as **runtime**.
+
+   .. figure:: images/3.2.2/32_centos_project_creds.png
+       :align: center
+       :alt: CentOS Project Credential
+
+       CentOS Project Credential
+
+#. Click **Save Environment & Project**.
 
 Launching the Blueprint from the Marketplace
 ............................................
@@ -429,10 +442,11 @@ Launching the Blueprint from the Marketplace
 
 #. Click **Launch**
 
-#. Enter the following info, and click **Create**.
+#. Enter the following info, and click **Depoy**.
 
    - **Name of the Application** - *initials*\ -CentOS-IaaS-2
    - **vm_password** - Nutanix/4u
+   - **Project** - *initials*-Calm IaaS
 
 #. Monitor the provisioning of the Blueprint until complete.
 

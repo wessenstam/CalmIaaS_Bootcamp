@@ -24,7 +24,7 @@ In this lab, you will be creating a **Windows 2016** server.
 
 #. In **Prism Central**, select :fa:`bars` **> Services > Calm**.
 
-   .. figure:: images/1_access_calm.png
+   .. figure:: images/3.2.2/1_access_calm.png
 
 #. Select |blueprints| **Blueprints** in the left hand toolbar to view and manage Calm blueprints.
 
@@ -50,15 +50,9 @@ In this lab, you will be creating a **Windows 2016** server.
 
 #. Note the following fields on the **VM Details** page:
 
-   - **Name** - The internal-to-Calm name of the VM.  Use @@{calm_application_name}@@.
-   - **Cloud** - The cloud we're deploying the infrastructure on.  Should be left as **Nutanix**.
+   - **Name** - VM1
+   - **Account** - The environment we're deploying the infrastructure on.  Should be left as **NTNX_LOCAL_AZ**.
    - **Operating System** - Windows (The type of OS we're deploying)
-
-   .. figure:: images/5_windows_2.png
-       :align: center
-       :alt: Windows 2016 VM Details
-
-       Windows 2016 VM Details
 
 #. Click **VM Configuration** to proceed to the next step.
 
@@ -200,13 +194,13 @@ Now that our blueprint is complete, take note of the buttons to the right of the
     - **Name of the Application** - *initials*\ -Win-IaaS
     - **vm_password** - Nutanix/4u
 
-   .. figure:: images/18_launch.png
+   .. figure:: images/3.2.2/18_launch.png
     :align: center
     :alt: Blueprint Launch
 
     Blueprint Launch
 
-#. Click **Create**, where you'll be redirected to the application page.
+#. Click **Deploy**, where you'll be redirected to the application page.
 
 Managing your Application
 +++++++++++++++++++++++++
@@ -282,7 +276,7 @@ Now that we're familiar with the application page layout, let's modify our appli
 
        Windows Memory - Confirm Change
 
-#. In the **Audit** tab of Calm, wait for the **App Update** action to complete.
+#. In the **Audit** tab of Calm, wait for the **App Update** action to complete. Your VM will reboot for this change.
 
 #. Back in the **VM Console**, run the same command from earlier to view the updated memory, and note that it has increased by 2 GiB.
 
@@ -380,29 +374,23 @@ Configuring Project Environment
 
 #. Select your *initials*\ -Project.
 
-#. Select the **Environment** tab.
+#. Click the **1 environment added** text in the Environments part.
 
-#. Under **Credential**, click :fa:`plus-circle` and enter the following:
+#. Click the three dots icon behind the xyz-Calm IaaS and select **Update**
 
-   - **Credential Name** - Administrator
-   - **Username** - Administrator
-   - **Secret Type** - Password
-   - **Password** - Nutanix/4u
-   - Click the **running man** icon above Password box to mark this variable as **runtime**.
+.. figure:: images/3.2.2/32_update_project.png
+   :align: center
+   :alt: Update Project settings
 
-   .. figure:: images/32_windows_project_creds.png
-       :align: center
-       :alt: Windows Project Credential
+   Update Project settings
 
-       Windows Project Credential
-
-#. Under **VM Configuration** select **NUTANIX** and expand **Windows** (if not already visible), and enter the following:
+#. Under **Accounts** click the text **Ready for market usage, Linux only** and expand **Windows** (if not already visible), and enter the following:
 
    - select **NUTANIX**
    - **VM Name** - vm-@@{calm_array_index}@@-@@{calm_time}@@ (Default)
    - **vCPUs** - 4
    - **Cores per vCPU** - 1
-   - **Memory** - 6GiB
+   - **Memory** - 6 
    - **Image** - Windows2016.qcow2
    - **NICs** - Click the **blue plus**, then selecting **Primary** in the dropdown, and select the **Dynamic** radio button.
    - **Check log-in upon create** - checked, and **Credential** - Administrator (Defined Above)
@@ -413,7 +401,24 @@ Configuring Project Environment
 
        Windows Project VM Config
 
-#. Click **Save**.
+#. Click **Next**.
+
+#. Under **Credential**, click **Add Credentials** and enter the following:
+
+   - **Credential Name** - Administrator
+   - **Username** - Administrator
+   - **Secret Type** - Password
+   - **Password** - Nutanix/4u
+   - Click the **running man** icon above Password box to mark this variable as **runtime**.
+
+   .. figure:: images/3.2.2/32_windows_project_creds.png
+       :align: center
+       :alt: Windows Project Credential
+
+       Windows Project Credential
+
+#. Click **Save Environment**
+
 
 Launching the Blueprint from the Marketplace
 ............................................
@@ -434,10 +439,11 @@ Launching the Blueprint from the Marketplace
 
 #. Click **Launch**
 
-#. Entrer the Following info, and click **Create**.
+#. Entrer the Following info, and click **Deploy**.
 
    - **Name of the Application** - *initials*\ -Win-IaaS-2
    - **vm_password** - Nutanix/4u
+   - **Project** - *initials*-Calm IaaS
 
 #. Monitor the provisioning of the Blueprint until complete.
 

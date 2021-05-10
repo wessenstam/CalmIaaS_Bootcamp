@@ -27,10 +27,20 @@
 
 .. toctree::
   :maxdepth: 2
+  :caption: Calm Runbooks
+  :name: _calm_runbooks
+  :hidden:
+
+  calm_runbook_linux/calm_runbook_linux
+  calm_runbook_windows/calm_runbook_windows
+
+.. toctree::
+  :maxdepth: 2
   :caption: Optional Labs
   :name: _optional_labs
   :hidden:
 
+  calm_dsl/calm_dsl
   calm_enable/calm_enable
 
 .. toctree::
@@ -74,6 +84,9 @@ Agenda
     - Calm: Deploy Windows Blueprint and use Marketplacs
 
 - Optional Labs
+    - Calm: Calm Runbooks for Linux
+    - Calm: Calm Runbooks for Windows
+    - Calm: Enable calm
 
 Introductions
 +++++++++++++
@@ -163,7 +176,7 @@ For some workshops we are using Single Node Clusters (SNC). The reason for this 
 The network in the SNC config is using a /26 network. This splits the network address into four equal sizes that can be used for workshops. The below table describes the setup of the network in the four partitions. It provides essential information for the workshop with respect to the IP addresses and the services running at that IP address.
 
 .. list-table::
-  :widths: 15 15 15 15 40
+  :widths: 25 25 25 25 35 35
   :header-rows: 1
 
   * - Partition 1
@@ -350,6 +363,6 @@ For RTP:
 Nutanix Version Info
 ++++++++++++++++++++
 
-- **AHV Version** - AHV 20170830.337 (AOS 5.11+)
+- **AHV Version** - AHV 20190916.294 (AOS 5.18+)
 - **AOS Version** - 5.15.x | 5.16.x | 5.17.x | 5.18.x | 5.19.x
 - **PC Version** - Prism 2021.3.0.1
